@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog das Ideias</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="mark">I</div>
+      <div>Blog das Ideias</div>
+    </div>
+    <div class="search">
+      <input id="q" placeholder="Buscar post...">
+    </div>
+    <div class="actions">
+      <div id="authActions">
+        <span id="userStatus"></span>
+
+        <button class="btn" id="newPostBtn">+ Novo Post</button>
+
+        <button class="btn" id="loginLogoutBtn">Entrar</button>
+        <button id="registerBtn" class="btn">Registrar</button>
+      </div>
+      
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="card">
+        <h4>Ordenar</h4>
+        <div class="sort-buttons">
+          <button class="small" data-sort="hot">Hot</button>
+          <button class="small" data-sort="top">Top</button>
+          <button class="small" data-sort="new">Novo</button>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Comunidade</h4>
+        <p class="muted">Um riacho imaginário onde ideias descem como luz.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      
+      <section class="composer card">
+        <textarea id="composer" placeholder="Conte algo — seja breve, ou longo como um poema."></textarea>
+        <div class="row composer-actions">
+          <div>
+            <button class="btn" id="postBtn">Publicar</button>
+            <button class="clear-btn">Limpar</button>
+          </div>
+          <div class="muted">Poste com sinceridade e terá a solução.</div>
+        </div>
+      </section> 
+      <section id="feed"></section>
+      
+    </main>
+  </div>
+
+  <footer>Canal das Ideias — espaço para poesia e Ideais.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

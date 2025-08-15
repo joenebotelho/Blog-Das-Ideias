@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Canal das Ideias</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #071022 0%, #071827 60%);
+      color: #e6eef6;
+    }
+    .auth-form {
+      max-width: 320px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      -webkit-backdrop-filter: blur(10px); /* Para Safari e iOS */
+  backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .auth-form h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ff4500;
+    }
+    .auth-form input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #e6eef6;
+      font-size: 16px;
+    }
+    .auth-form input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+    .auth-form button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: #ff4500;
+      color: #fff;
+    }
+    .auth-form a {
+      display: block;
+      margin-top: 1rem;
+      text-align: center;
+      color: #9aa4b2;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .auth-form a:hover {
+      text-decoration: underline;
+    }
+    #authMsgPage{
+      margin-top:8px;color:#ff4d4d;font-size:14px; text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="card auth-form">
+    <h3>Cadastro</h3>
+    <input id="regEmail" type="email" placeholder="E-mail">
+    <input id="regName" placeholder="Nome">
+    <input id="regPass" type="password" placeholder="Senha">
+    <button id="registerPageBtn" class="btn">Cadastrar</button>
+    <div id="authMsgPage"></div>
+    <a href="login.html">Já tem uma conta? Faça login</a>
+  </div>
+
+  <script>
+    document.getElementById('registerPageBtn').onclick = async () => {
+      const email = document.getElementById('regEmail').value.trim();
+      const name = document.getElementById('regName').value.trim();
+      const password = document.getElementById('regPass').value.trim();
+      const msg = document.getElementById('authMsgPage');
+      if (!email || !name || !password) {
+        msg.textContent = 'Preencha todos os campos!';
+        return;
+      }
+      
+      const res = await fetch('http://joenesdev.ddns.net:3000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, password })
+      });
+      const data = await res.json();
+      
+      if (res.ok) {
+        msg.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+        msg.style.color = '#46d160';
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000); // Redireciona após 2 segundos
+      } else {
+        msg.textContent = data.erro || 'Erro ao cadastrar. Tente outro e-mail.';
+        msg.style.color = '#ff4d4d';
+      }
+    };
+  </script>
+</body>
+</html>
