@@ -1,4 +1,4 @@
-const API_BASE = 'http://joenesdev.ddns.net:3000/api/posts';
+const API_BASE = 'https://joenebotelho.github.io/Blog-Das-Ideias/api/posts';
 let state = { posts: [] };
 let sortMode = 'hot';
 let user = localStorage.getItem('mini_reddit_user_name') || null;
