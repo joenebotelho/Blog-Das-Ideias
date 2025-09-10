@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.render.com/deploy/srv-d30d1f95pdvs73fsm69g?key=68MRHrvTBhM';
+const API_BASE = 'https://api.render.com/deploy/srv-d30d1f95pdvs73fsm69g?key=68MRHrvTBhM/api/posts';
 let state = { posts: [] };
 let sortMode = 'hot';
 let user = localStorage.getItem('mini_reddit_user_name') || null;
