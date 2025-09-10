@@ -12,7 +12,7 @@ mongoose.connection.on('error', err => {
 });
 
 // Conexão com MongoDB
-mongoose.connect('mongodb://localhost:27017/minireddit', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://joenesbotelho_db_user:rfRafGhMLZexH36h@cluster0.fqbwieh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
