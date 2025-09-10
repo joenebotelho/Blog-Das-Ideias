@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.render.com/deploy/srv-d30d1f95pdvs73fsm69g?key=68MRHrvTBhM/api/posts';
+const API_BASE = 'http://joenesdev.ddns.net:3000/api/posts';
 let state = { posts: [] };
 let sortMode = 'hot';
 let user = localStorage.getItem('mini_reddit_user_name') || null;
